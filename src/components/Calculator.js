@@ -10,16 +10,19 @@ export class Calculator extends Component {
         interest: ''
     }
 
+    getDPPercentage = (value, downPayment) => {
+        const downPaymentpercent = (100 / (value / downPayment));
+        this.setState({ downPaymentpercent })
+    }
+
     handleValueChange = (e) => {
         this.setState({ homeValue : e.target.value })
     }
 
     handlePaymentChange = (e) => {
-        this.setState({ downPayment : e.target.value })
-    }
-
-    handlePaymentPercentChange = (e) => {
-        this.setState({ downPaymentpercent : e.target.value })
+        this.setState({
+            downPayment : e.target.value,
+        });
     }
 
     handleTermChange = (e) => {
@@ -29,11 +32,17 @@ export class Calculator extends Component {
     handleInterestChange = (e) => {
         this.setState({ interest : e.target.value })
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.getDPPercentage(this.state.homeValue, this.state.downPayment);
+        console.log('hiya')
+    }
     
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h1 className="text-center mt-5">Mortgage Calculator</h1>
 
                     <div className="form-main">                    
@@ -66,7 +75,8 @@ export class Calculator extends Component {
                             <div>
                                 <input type="text" className="input"
                                 value={this.state.downPaymentpercent}
-                                onChange={this.handlePaymentPercentChange}
+                                //onChange={this.handlePaymentPercentChange}
+                                disabled
                                 placeholder="% Down Payment"
                                 />
     
