@@ -3,14 +3,14 @@
   justify-content: center;
 }
 .form-main {
-  margin-top: 20vh;
-  width: 40vw;
+  width: 35vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   border: 1px solid grey;
   padding: 20px 20px 30px 20px;
   border-radius: 10px;
+  padding-left: 50px;
 }
 
 .row {
@@ -36,7 +36,12 @@
 }
 
 .col div {
-  padding: 1px;
+  padding: 1.5px;
+}
+
+button {
+  width: 400px;
+  height: 50px;
 }
 
 #btn-div {
@@ -46,5 +51,17 @@
 }
 
 label {
-  padding: 5px;
+  padding: 2px;
+}
+
+.labels {
+  padding-top: 5px;
+}
+
+.loan-label {
+  padding-top: 8px;
+}
+
+.interest-label {
+  padding-top: 10px;
 }
