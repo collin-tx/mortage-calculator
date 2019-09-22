@@ -34,21 +34,81 @@ export class Calculator extends Component {
         return (
             <div>
                 <form>
-                    <label>Home Value:</label>
-                    $<input type="text" value={this.state.homeValue} onChange={this.handleValueChange} />
-                    <label>Down Payment:</label>
-                    $<input type="text" value={this.state.downPayment} onChange={this.handlePaymentChange} />
-                    <label>Down Payment Percentage:</label>
-                    %<input type="text" value={this.state.downPaymentpercent} onChange={this.handlePaymentPercentChange} />
-                    <label>Loan Term:</label>
-                    <select value={this.state.loanTerm} className='term_length' onChange={this.handleTermChange}>
-                        <option value={10}>10 Year Fixed</option>
-                        <option value={15}>15 Year Fixed</option>
-                        <option value={20}>20 Year Fixed</option>
-                        <option  value={30}>30 Year Fixed</option>
-                    </select>
-                    <label>Interest Percentage</label>
-                    <input type="text" value={this.state.interest} onChange={this.handleInterestChange} />
+                    {/* <div className="row">
+                        <label>Home Value:</label>
+                        <div className="column">
+                            $<input type="text" value={this.state.homeValue} onChange={this.handleValueChange} />
+                        </div>
+                    </div>
+
+
+                    <div className="row">
+                        <label>Down Payment:</label>
+                        $<input type="text" value={this.state.downPayment} onChange={this.handlePaymentChange} />
+                    </div>
+
+                    <div className="row">
+                        <label>Down Payment Percentage:</label>
+                        %<input type="text" value={this.state.downPaymentpercent} onChange={this.handlePaymentPercentChange} />
+                    </div>
+
+                    <div className="row">
+                         <label>Loan Term:</label>
+                        <select value={this.state.loanTerm} className='term_length' onChange={this.handleTermChange}>
+                            <option value={10}>10 Year Fixed</option>
+                            <option value={15}>15 Year Fixed</option>
+                            <option value={20}>20 Year Fixed</option>
+                            <option  value={30}>30 Year Fixed</option>
+                        </select>
+                    </div>
+
+                    <div className="row">
+                        <label>Interest Percentage</label>
+                        <input type="text" value={this.state.interest} onChange={this.handleInterestChange} />
+                    </div> */}
+                    <div className="form-main">                    
+                    
+                        <div className="col">
+                            <label>Home Value:</label>
+                            <label>Down Payment:</label>
+                            <label>Down Payment Percentage:</label>
+                            <label>Loan Term:</label>
+                            <label>Interest Percentage</label>
+                        </div>
+
+                        <div className="col">
+                            <div>
+                                <input type="text" className="input" value={this.state.homeValue} onChange={this.handleValueChange} />
+                            </div>
+
+                            <div>
+                                <input type="text" className="input" value={this.state.downPayment} onChange={this.handlePaymentChange} />
+                            </div>
+
+                            <div>
+                                <input type="text" className="input" value={this.state.downPaymentpercent} onChange={this.handlePaymentPercentChange} />
+    
+                            </div>
+
+                            <div id="select">
+                                <select value={this.state.loanTerm} className="input" onChange={this.handleTermChange}>
+                                    <option value={10}>10 Year Fixed</option>
+                                    <option value={15}>15 Year Fixed</option>
+                                    <option value={20}>20 Year Fixed</option>
+                                    <option  value={30}>30 Year Fixed</option>
+                                </select>   
+                            </div>
+
+                            <div>
+                                <input type="text" className="input" value={this.state.interest} onChange={this.handleInterestChange} />
+                            </div>
+                            
+                        </div>
+                    </div>
+                   
+                    <div id="btn-div">
+                       <button className="btn btn-large btn-primary">Calculate Mortgage</button>
+                    </div>
                 </form>
             </div>
         )
