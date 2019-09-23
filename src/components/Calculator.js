@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { mortgageCalculations } from '../utils/mortgageCalc';
+import MortgageInfo from './MortgageInfo';
 
 export class Calculator extends Component {
     
@@ -7,7 +9,10 @@ export class Calculator extends Component {
         downPayment: '',
         downPaymentpercent: '',
         loanTerm: '',
-        interest: ''
+        interest: '',
+        mortgage: '',
+        monthly: null,
+        showMortgage: false
     }
 
     getDPPercentage = (value, downPayment) => {
@@ -36,7 +41,9 @@ export class Calculator extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.getDPPercentage(this.state.homeValue, this.state.downPayment);
-        console.log('hiya')
+        const { homeValue, downPayment, loanTerm, interest} = this.state;
+        const mortgage = mortgageCalculations(homeValue, downPayment, loanTerm, interest);
+        this.setState({ mortgage, showMortgage: true })
     }
     
     render() {
@@ -106,6 +113,9 @@ export class Calculator extends Component {
                        <button className="btn btn-large btn-primary">Calculate Mortgage</button>
                     </div>
                 </form>
+                {this.state.showMortgage &&
+                    <MortgageInfo mortgage={this.state.mortgage} /> 
+                }
             </div>
         )
     }
