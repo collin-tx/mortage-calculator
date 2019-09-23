@@ -8,7 +8,7 @@ export class Calculator extends Component {
         homeValue: '',
         downPayment: '',
         downPaymentpercent: '',
-        loanTerm: '',
+        loanTerm: 30,
         interest: '',
         mortgage: '',
         monthly: null,
@@ -40,10 +40,16 @@ export class Calculator extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.getDPPercentage(this.state.homeValue, this.state.downPayment);
-        const { homeValue, downPayment, loanTerm, interest} = this.state;
-        const mortgage = mortgageCalculations(homeValue, downPayment, loanTerm, interest);
-        this.setState({ mortgage, showMortgage: true })
+        if (this.state.homeValue > 50000 &&
+        this.state.downPayment > 1000 &&
+        this.state.interest.length > 0){
+            this.getDPPercentage(this.state.homeValue, this.state.downPayment);
+            const { homeValue, downPayment, loanTerm, interest} = this.state;
+            const mortgage = mortgageCalculations(homeValue, downPayment, loanTerm, interest);
+            this.setState({ mortgage, showMortgage: true })
+        } else {
+            alert('please fill out the forms correctly!')
+        }
     }
     
     render() {
@@ -113,7 +119,7 @@ export class Calculator extends Component {
                        <button className="btn btn-large btn-primary">Calculate Mortgage</button>
                     </div>
                 </form>
-
+                
                 <MortgageInfo mortgage={this.state.mortgage} /> 
                 
             </div>
