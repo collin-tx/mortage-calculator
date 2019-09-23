@@ -113,9 +113,9 @@ export class Calculator extends Component {
                        <button className="btn btn-large btn-primary">Calculate Mortgage</button>
                     </div>
                 </form>
-                {this.state.showMortgage &&
-                    <MortgageInfo mortgage={this.state.mortgage} /> 
-                }
+
+                <MortgageInfo mortgage={this.state.mortgage} /> 
+                
             </div>
         )
     }

@@ -14,13 +14,15 @@ export const mortgageCalculations = (homeValue, downPayment, loanTerm, interest)
         const montlyInterest = interestInDecimal / 12;
         const term = loanTerm * 12;
         const interestTimesPayments = (Math.pow(1+montlyInterest,term)).toFixed(3);
-      
+        const dpPercent = (downPayment / homeValue) * 100;
         let principal = homeValue - downPayment;
         let propTaxes = homeValue * 0.02173;
         let monthlyTaxes = propTaxes / 12;
         const loanPayment = principal*((montlyInterest * interestTimesPayments)/(interestTimesPayments - 1));
-        console.log(loanPayment, monthlyTaxes)
-        return (loanPayment + monthlyTaxes).toFixed(2);
+        const PMI = dpPercent >= 20 ? 0 : (homeValue / 50000) * 25;
+        const payment = (loanPayment + monthlyTaxes + PMI).toFixed(2);
+        console.log(loanPayment, monthlyTaxes, dpPercent, PMI)
+        return [payment, PMI, monthlyTaxes]
 }
 
 
