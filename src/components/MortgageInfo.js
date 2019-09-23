@@ -2,7 +2,7 @@ import React from 'react';
 
 const MortgageInfo = (props) => {
     return (
-        <div>
+        <div id="mortgage-info">
             your mortgage info: {props.mortgage}
         </div>
     );
