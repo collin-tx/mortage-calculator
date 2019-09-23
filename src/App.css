@@ -28,13 +28,13 @@ form {
   border-radius: 5px;
   margin-top: 20px;
   text-align: center;
-  font-size: 2rem;
+  /* font-size: 2rem; */
   padding: 5px;
   margin-bottom: 20vh;
 }
 
 .estimate-display {
-  font-size: 2rem;
+  margin: 10px;
 }
 
 .row {
@@ -88,4 +88,8 @@ label {
 
 .interest-label {
   padding-top: 10px;
+}
+
+.info-btn {
+  margin-bottom: 20px;
 }

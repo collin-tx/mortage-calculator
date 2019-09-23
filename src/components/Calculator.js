@@ -16,7 +16,7 @@ export class Calculator extends Component {
     }
 
     getDPPercentage = (value, downPayment) => {
-        const downPaymentpercent = (100 / (value / downPayment));
+        const downPaymentpercent = (100 / (value / downPayment)).toFixed(1);
         this.setState({ downPaymentpercent })
     }
 
