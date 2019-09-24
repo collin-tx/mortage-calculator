@@ -35,6 +35,7 @@ form {
 
 .estimate-display {
   margin: 10px;
+  font-size: 1.3rem;
 }
 
 .row {
@@ -92,4 +93,9 @@ label {
 
 .info-btn {
   margin-bottom: 20px;
+}
+
+.monthly-amount {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }

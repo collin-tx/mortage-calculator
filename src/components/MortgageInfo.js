@@ -14,7 +14,7 @@ class MortgageInfo extends React.Component{
     return (
         <div id="mortgage-info">
             <p className="estimate-display">your monthly estimate: </p>
-            {this.props.mortgage[0] && <h5>${this.props.mortgage[0]}</h5>}
+            {this.props.mortgage[0] && <h5 className="monthly-amount">${this.props.mortgage[0]}</h5>}
             
 
             { this.state.showMore &&
