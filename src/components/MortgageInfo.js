@@ -1,4 +1,5 @@
 import React from 'react';
+import numberFormat from '../utils/numberFormat';
 
 class MortgageInfo extends React.Component{
     
@@ -14,13 +15,13 @@ class MortgageInfo extends React.Component{
     return (
         <div id="mortgage-info">
             <p className="estimate-display">your monthly estimate: </p>
-            {this.props.mortgage[0] && <h5 className="monthly-amount">${this.props.mortgage[0]}</h5>}
+            {this.props.mortgage[0] && <h5 className="monthly-amount">${numberFormat(this.props.mortgage[0])}</h5>}
             
 
             { this.state.showMore &&
                 <div>
                     <p>Mortgage Insurance: ${this.props.mortgage[1]}</p>
-                    <p>monthly taxes: ${this.props.mortgage[2].toFixed(2)}</p>
+                    <p>monthly taxes: ${numberFormat(this.props.mortgage[2].toFixed(2))}</p>
                 </div>
             }
 
