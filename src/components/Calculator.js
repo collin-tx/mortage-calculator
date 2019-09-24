@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { mortgageCalculations } from '../utils/mortgageCalc';
 import MortgageInfo from './MortgageInfo';
+import numberFormat from '../utils/numberFormat';
 
 export class Calculator extends Component {
     
@@ -42,7 +43,8 @@ export class Calculator extends Component {
         e.preventDefault();
         if (this.state.homeValue > 50000 &&
         this.state.downPayment > 1000 &&
-        this.state.interest.length > 0){
+        this.state.interest.length > 0 &&
+        Number(this.state.homeValue) >= Number(this.state.downPayment)){
             this.getDPPercentage(this.state.homeValue, this.state.downPayment);
             const { homeValue, downPayment, loanTerm, interest} = this.state;
             const mortgage = mortgageCalculations(homeValue, downPayment, loanTerm, interest);
