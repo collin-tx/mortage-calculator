@@ -99,3 +99,19 @@ label {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
+
+@media(max-width: 1300px){
+  label {
+    width: fit-content;
+  }
+
+  .input {
+    margin: 4px 0 4px 0;
+  }
+}
+
+@media(max-width: 1200px){
+  .input {
+    margin: 12px 0 12px 0;
+  }
+}
